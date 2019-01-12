@@ -39,12 +39,8 @@
     background-color:#282c34;
     margin:0;
     padding:0;
-    display: inline-block;
+   /* display: inline-block;*/
     text-align:left;
-}
-.button :hover{
-    color:  rgb(233, 75, 27);
-    background-color: yellow
 }
 
  

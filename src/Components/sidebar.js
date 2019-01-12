@@ -18,13 +18,13 @@ class SideBar extends React.Component {
             <Fragment classname="side-drawer">
                     <div className="headline">Basic menü</div>
                     <nav >
-                        <button className="button" onClick={() => this.setState({ showDiv1: !showDiv1 })}>
+                        <button className="button" onClick={() => parent.setState({ showDiv1: !showDiv1 })}>
                                     <ul>
                                         <li>
                                             <NavLink to="/readuser" ><i className="fas fa-users"></i>Felhasználók</NavLink>
                                         </li>
                                     </ul></button>
-                                {showDiv1 && (
+                                {parent.showDiv1 && (
                                     
                                         <ul>
                                             <li>

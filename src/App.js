@@ -14,7 +14,10 @@ import DeleteUserPage from './Pages/user/deleteUser';
 import './css/app.css'
 class App extends Component {
   state = {
-    sideDrawerOpen: false
+    sideDrawerOpen: false,
+    showDiv1: false,
+        showDiv2: false,
+        showDiv3: false
   };
 
   drawerToggleClickHandler = () => {
@@ -31,7 +34,7 @@ class App extends Component {
 
   render() {
     let backdrop;
-    let sideDrawer;
+    const { showDiv1 } = this.state
 
     if (this.state.sideDrawerOpen) {
       backdrop = <Backdrop click={this.backdropClickHandler} />;
@@ -42,6 +45,7 @@ class App extends Component {
         <Header drawerClickHandler={this.drawerToggleClickHandler} />
         <MainNavigation show={this.state.sideDrawerOpen} click={this.backdropClickHandler}/>
         {backdrop}
+        { showDiv1 }
           <main className="main">
           <Footer />
             <Switch>

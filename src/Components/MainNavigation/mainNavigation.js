@@ -6,9 +6,18 @@ const mainNavigation = props => {
     if (props.show) {
       drawerClasses = 'sideBar open';
     }
+    
+    
     return (
     <nav className={drawerClasses}>                              
         <ul>
+        <button className="button" >
+                        
+                                    
+                                            <NavLink to="" ><i className="fas fa-users"></i>Felhasználók</NavLink>
+                                       </button>
+                                        
+                                           <ul>                        
             <li>
                 <NavLink to="/createuser" onClick={props.click}>
                     <i className="fas fa-user-plus"></i>
@@ -33,9 +42,12 @@ const mainNavigation = props => {
                     Törlés
                     </NavLink>
             </li>
+            </ul>
+            
         </ul>
     </nav>
 );
+
     };
 
 
