@@ -34,7 +34,7 @@ class App extends Component {
 
   render() {
     let backdrop;
-    const { showDiv1 } = this.state
+    
 
     if (this.state.sideDrawerOpen) {
       backdrop = <Backdrop click={this.backdropClickHandler} />;
@@ -45,7 +45,7 @@ class App extends Component {
         <Header drawerClickHandler={this.drawerToggleClickHandler} />
         <MainNavigation show={this.state.sideDrawerOpen} click={this.backdropClickHandler}/>
         {backdrop}
-        { showDiv1 }
+        
           <main className="main">
           <Footer />
             <Switch>
