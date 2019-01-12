@@ -38,10 +38,10 @@ class App extends Component {
     }
     return (
       <BrowserRouter>
-        <React.Fragment>
+        <Fragment>
         <Header drawerClickHandler={this.drawerToggleClickHandler} />
-        <MainNavigation show={this.state.sideDrawerOpen} click={this.backdropClickHandler}/>
-        {backdrop}
+       {/*} <MainNavigation show={this.state.sideDrawerOpen} click={this.backdropClickHandler}/>
+       */} {backdrop}
         
           <main className="main">
           <Footer />
@@ -54,7 +54,7 @@ class App extends Component {
             </Switch>
           </main>
           <Footer />
-        </React.Fragment>
+        </Fragment>
       </BrowserRouter>
     )
   }
