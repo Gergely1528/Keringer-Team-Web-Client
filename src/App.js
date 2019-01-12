@@ -1,20 +1,60 @@
-import React, { Component } from 'react';
-import MainLayout from './Layouts/mainlayout';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import './App.css';
-import { NavLink } from 'react-router-dom';
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Teszt from './Pages/teszt';
-import Teszt2 from './Pages/teszt2';
+import Header from './components/header';
+import MainNavigation from './components/MainNavigation/mainNavigation';
+import Footer from './components/footer';
+import Backdrop from './components/backdrop';
 
+import CreateUserPage from './Pages/user/createUser';
+import UpdateUserPage from './Pages/user/updateUser';
+import ReadUserPage from './Pages/user/readUser';
+import DeleteUserPage from './Pages/user/deleteUser';
 
+import './css/app.css'
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
+  state = {
+    sideDrawerOpen: false
+  };
 
-    
-      </div>
+  drawerToggleClickHandler = () => {
+    this.setState((prevState) => {
+      return {sideDrawerOpen: !prevState.sideDrawerOpen};
+    });
+  };
+
+  backdropClickHandler = () => {
+    this.setState((prevState) => {
+      return {sideDrawerOpen: !prevState.sideDrawerOpen};
+    });
+  };
+
+  render() {
+    let backdrop;
+    let sideDrawer;
+
+    if (this.state.sideDrawerOpen) {
+      backdrop = <Backdrop click={this.backdropClickHandler} />;
+    }
+    return (
+      <BrowserRouter>
+        <React.Fragment>
+        <Header drawerClickHandler={this.drawerToggleClickHandler} />
+        <MainNavigation show={this.state.sideDrawerOpen} click={this.backdropClickHandler}/>
+        {backdrop}
+          <main className="main">
+          <Footer />
+            <Switch>
+              <Route path="/" to="/auth" exact />
+              <Route path="/createuser" component={CreateUserPage}/>
+              <Route path="/updateuser" component={UpdateUserPage}/>
+              <Route path="/readuser" component={ReadUserPage}/>
+              <Route path="/deleteuser" component={DeleteUserPage}/>
+            </Switch>
+          </main>
+          <Footer />
+        </React.Fragment>
+      </BrowserRouter>
     )
   }
 }
