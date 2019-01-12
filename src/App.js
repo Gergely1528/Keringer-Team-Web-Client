@@ -14,10 +14,7 @@ import DeleteUserPage from './Pages/user/deleteUser';
 import './css/app.css'
 class App extends Component {
   state = {
-    sideDrawerOpen: false,
-    showDiv1: false,
-        showDiv2: false,
-        showDiv3: false
+    sideDrawerOpen: false
   };
 
   drawerToggleClickHandler = () => {
